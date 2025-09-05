@@ -1,0 +1,4 @@
+code,criticality,name,descr
+E,1,Error
+S,2,Success
+W,3,Warning
