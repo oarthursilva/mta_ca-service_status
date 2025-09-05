@@ -1,0 +1,1 @@
+require('../../../../node_modules/sap-workzone-cpkg-tools').card.build(__dirname);

@@ -1,0 +1,20 @@
+{
+  "_version": "3.2.0",
+  "identification": {
+    "id": "space_1.overview",
+    "title": "{{title}}",
+    "description": "{{description}}",
+    "entityType": "space"
+  },
+  "payload": {
+    "spaceConfig": {
+      "sortNumber": 100
+    },
+    "contentNodes": [
+      {
+        "type": "workpage",
+        "id": "page_1.overview"
+      }
+    ]
+  }
+}

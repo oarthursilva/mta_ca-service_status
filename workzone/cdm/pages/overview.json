@@ -1,0 +1,62 @@
+{
+  "_version": "3.2.0",
+  "identification": {
+    "id": "page_1.overview",
+    "entityType": "workpage"
+  },
+  "payload": {
+    "workpageConfig": {
+      "title": ""
+    },
+    "rows": [
+      {
+        "id": "page_overview-1",
+        "rowConfig": {},
+        "columns": [
+          {
+            "id": "page_overview-11",
+            "columnConfig": {
+              "columnWidth": 8
+            },
+            "cells": [
+              {
+                "id": "page_overview-111",
+                "cellConfig": {},
+                "widgets": [
+                  {
+                    "id": "page_overview-1111",
+                    "viz": {
+                      "appId": "cards.servicestatus.app",
+                      "vizId": "cards.servicestatus.viz"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "page_overview-12",
+            "columnConfig": {
+              "columnWidth": 4
+            },
+            "cells": [
+              {
+                "id": "page_overview-112",
+                "cellConfig": {},
+                "widgets": [
+                  {
+                    "id": "page_overview-1112",
+                    "viz": {
+                      "appId": "cards.servicestatuschart.app",
+                      "vizId": "cards.servicestatuschart.viz"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

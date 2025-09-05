@@ -1,0 +1,49 @@
+{
+  "sap.package": {
+    "id": "bc.ss",
+    "packageVersion": {
+      "version": "1.0.3",
+      "upgradeNotification": "all"
+    },
+    "i18n": "i18n/i18n.properties",
+    "title": "{{package_title}}",
+    "subTitle": "",
+    "shortTitle": "",
+    "info": "",
+    "description": "{{package_description}}",
+    "tags": {
+      "keywords": []
+    },
+    "products": "",
+    "vendor": {
+      "id": "",
+      "name": "Arthur Silva",
+      "url": "https://"
+    },
+    "categories": "",
+    "scope": "external",
+    "license": {
+      "text": "",
+      "url": ""
+    },
+    "homepage": {
+      "text": "",
+      "url": "https://"
+    },
+    "support": {
+      "url": "https://"
+    },
+    "contents": [
+      "__BUILD__"
+    ],
+    "documentation": {
+      "url": ""
+    },
+    "consumption": [],
+    "dependencies": {
+      "products": [],
+      "services": []
+    },
+    "destinations": []
+  }
+}

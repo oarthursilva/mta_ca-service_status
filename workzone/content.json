@@ -1,0 +1,41 @@
+{
+  "role": {
+    "type": "role",
+    "src": {
+      "from": "cdm",
+      "content": "role.json"
+    }
+  },
+  "space-overview": {
+    "type": "space",
+    "src": {
+      "from": "cdm/spaces",
+      "content": "overview.json"
+    }
+  },
+  "page-overview": {
+    "type": "workpage",
+    "src": {
+      "from": "cdm/pages",
+      "content": "overview.json"
+    }
+  },
+  "card-servicestatus": {
+    "type": "card",
+    "src": {
+      "from": "cdm/cards/servicestatus",
+      "package": "cards.servicestatus.zip",
+      "manifest": "src/manifest.json",
+      "build": "npm i && npm run-script build"
+    }
+  },
+  "card-servicestatuschart": {
+    "type": "card",
+    "src": {
+      "from": "cdm/cards/servicestatuschart",
+      "package": "cards.servicestatuschart.zip",
+      "manifest": "src/manifest.json",
+      "build": "npm i && npm run-script build"
+    }
+  }
+}

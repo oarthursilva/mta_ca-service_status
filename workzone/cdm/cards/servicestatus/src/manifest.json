@@ -1,0 +1,147 @@
+{
+  "_version": "1.15.0",
+  "sap.app": {
+    "id": "cards.servicestatus",
+    "type": "card",
+    "title": "{{title}}",
+    "subTitle": "{{subtitle}}",
+    "description": "{{description}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "tags": {
+      "keywords": [
+        "List",
+        "Card",
+        "Grouping"
+      ]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "phone": true,
+      "tablet": true,
+      "desktop": true
+    },
+    "icons": {
+      "icon": "sap-icon://list"
+    }
+  },
+  "sap.card": {
+    "type": "Table",
+    "configuration": {
+      "editor": "dt/configuration",
+      "destinations": {},
+      "parameters": {
+        "title": {
+          "value": "List of service statuses"
+        },
+        "subTitle": {
+          "value": "Statuses"
+        }
+      }
+    },
+    "header": {
+      "title": "{{title}}",
+      "subtitle": "{{subtitle}}",
+      "icon": {
+        "src": "sap-icon://order-status"
+      },
+      "actions": [
+        {
+          "type": "Navigation",
+          "parameters": {
+            "url": "http://hugoboss.com"
+          }
+        }
+      ]
+    },
+    "content": {
+      "data": {
+        "json": [
+          {
+            "ComponentName": "Database Access Framework",
+            "Description": "Version Informations for Database Access Framework",
+            "SystemId": "DA5",
+            "Status": "Error",
+            "Version": "2.1.0 - RELEASE"
+          },
+          {
+            "ComponentName": "Feature Control",
+            "Description": "Feature Control Framework",
+            "SystemId": "DA5",
+            "Status": "Error",
+            "Version": "2.4.1 - RELEASE"
+          },
+          {
+            "ComponentName": "GUID Generator Service",
+            "Description": "Version Informations for GUID Generator Service",
+            "SystemId": "DA5",
+            "Status": "Success",
+            "Version": "2.1.0 - RELEASE"
+          },
+          {
+            "ComponentName": "System Runtime",
+            "Description": "Version Information for System Runtime",
+            "SystemId": "DA5",
+            "Status": "Success",
+            "Version": "2.1.0 - RELEASE"
+          },
+          {
+            "ComponentName": "Verison Information",
+            "Description": "Version Information itself",
+            "SystemId": "DA5",
+            "Status": "Success",
+            "Version": "1.1.1 - RELEASE"
+          },
+          {
+            "ComponentName": "tec. IDoc Monitoring Srv.",
+            "Description": "technical IDoc Monitoring Service",
+            "SystemId": "DA5",
+            "Status": "Success",
+            "Version": "0.4.1 - ALPHA"
+          }
+        ]
+      },
+      "row": {
+        "highlight": "{Status}",
+        "actions": [
+          {
+            "type": "Navigation",
+            "parameters": {
+              "url": "http://hugoboss.com"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "title": "Component",
+            "value": "{ComponentName}",
+            "state": "{Status}",
+            "showStateIcon": true
+          },
+          {
+            "title": "Description",
+            "value": "{Description}"
+          },
+          {
+            "title": "Version",
+            "value": "{Version}",
+            "hAlign": "End"
+          }
+        ]
+      },
+      "group": {
+        "title": "{= ${Status} > format.date(Date.now()) ? 'Stable' : 'Error'}",
+        "order": {
+          "path": "ComponentName",
+          "dir": "ASC"
+        }
+      }
+    }
+  },
+  "sap.platform.mobilecards": {
+    "compatible": true
+  }
+}

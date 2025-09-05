@@ -1,0 +1,16 @@
+{
+  "name": "servicestatus.cpkg",
+  "version": "1.0.3",
+  "author": "Arthur Silva <e147422@hugoboss.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://"
+  },
+  "scripts": {
+    "build": "node scripts/pull.js && node scripts/build.js"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^4.0.23",
+    "sap-workzone-cpkg-tools": "git+https://git@github.com/SAP-samples/workzone-content-package-templates.git"
+  }
+}
