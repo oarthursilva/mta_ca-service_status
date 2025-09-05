@@ -1,22 +1,22 @@
 {
-  "name": "mta_bs-statusoverview_cms",
+  "name": "statusoverview-cf",
   "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap/cds": "^9",
-    "express": "^4"
-  },
+  "description": "",
   "engines": {
-    "node": ">=20"
+    "node": "^20"
+  },
+  "dependencies": {
+    "@statusoverview-cf/cap": "file:cap"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^2",
-    "@cap-js/cds-types": "^0.13.0"
+    "mbt": "^1.2.31",
+    "npm-run-all": "^4.1.5"
   },
   "scripts": {
-    "start": "cds-serve"
+    "build:module": "npm-run-all --parallel build:module:cap",
+    "build:module:cap": "cd cap && npm run build",
+    "build:cf": "mbt build -p=cf",
+    "deploy:cf": "cf deploy mta_archives/statusoverview_1.0.0.mtar --retries 1",
+    "undeploy:cf": "cf undeploy statusoverview --delete-service-keys --delete-services --delete-service-brokers"
   }
 }
