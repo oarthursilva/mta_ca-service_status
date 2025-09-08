@@ -16,13 +16,39 @@
     "node": ">=20"
   },
   "devDependencies": {
+    "@cap-js/cds-test": "^0.4.0",
     "@cap-js/cds-types": "^0.13.0",
     "@cap-js/sqlite": "^2",
     "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
+    "test": "npx jest */*.test.js",
     "start": "cds-serve",
     "watch-statusoverview": "cds watch --open statusoverview/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "cds": {
+    "requires": {
+      "auth": {
+        "[development]": {
+          "strategy": "mock",
+          "users": {
+            "user": {
+              "roles": [
+                "supporter"
+              ]
+            },
+            "admin": {
+              "roles": [
+                "admin"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "odata": {
+      "version": "v4"
+    }
   },
   "workspaces": [
     "app/*"
