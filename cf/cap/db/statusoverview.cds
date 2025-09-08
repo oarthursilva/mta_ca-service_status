@@ -22,9 +22,10 @@ entity StatusOverview : cuid, managed {
 
 entity Status : CodeList {
     key code        : String enum {
-            error = 'E';
-            success = 'S';
-            warning = 'W';
+            error = 'Error';
+            warning = 'Warning';
+            success = 'Success';
+
         };
         criticality : Integer;
 }

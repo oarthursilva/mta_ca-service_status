@@ -1,4 +1,4 @@
 code,criticality,name,descr
-E,1,Error
-S,2,Success
-W,3,Warning
+Error,1,Error
+Warning,2,Warning
+Success,3,Success
