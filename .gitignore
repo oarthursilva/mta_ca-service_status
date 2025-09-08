@@ -136,7 +136,7 @@ dist
 
 # sap-workzone-cpkg-tools
 __contents/
-package.zip
+*.zip
 package/
 
 # mbt build
@@ -146,5 +146,5 @@ Makefile*.mta
 mta_archives
 mta-*
 resources
-archive.zip
+package.zip
 .*_mta_build_tmp
