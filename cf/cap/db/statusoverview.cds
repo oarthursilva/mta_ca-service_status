@@ -10,7 +10,7 @@ namespace statusoverview.cf.db;
 * Status overview created by employees
 */
 entity StatusOverview : cuid, managed {
-    status    : Association to Status default 'S';
+    status    : Association to Status default 'Success';
     component : String @title: 'Component';
     comment   : Composition of one {
                     key ID        : UUID;
