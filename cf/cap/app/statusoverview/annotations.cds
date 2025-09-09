@@ -58,7 +58,7 @@ annotate service.StatusOverview with {
                 {
                     $Type            : 'Common.ValueListParameterInOut',
                     LocalDataProperty: status_code,
-                    ValueListProperty: 'status',
+                    ValueListProperty: 'code',
                 },
                 {
                     $Type            : 'Common.ValueListParameterDisplayOnly',
@@ -70,5 +70,5 @@ annotate service.StatusOverview with {
 };
 
 annotate service.Status with {
-    descr @Common.Text: status
+    descr @Common.Text: code
 };

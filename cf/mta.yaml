@@ -1,7 +1,7 @@
 _schema-version: 3.3.0
 ID: statusoverview
 version: 1.0.0
-description: Status overview
+description: Status Overview
 parameters:
   enable-parallel-deployments: true
   deploy_mode: html5-repo
@@ -30,32 +30,32 @@ modules:
         properties:
           srv-url: ${default-url}
     requires:
-      - name: bc_mc-auth
-      - name: bc_mc-dest
+      - name: bc_so-auth
+      - name: bc_so-dest
 
-  - name: bc_mc-dest-content
+  - name: bc_so-dest-content
     type: com.sap.application.content
     requires:
-      - name: bc_mc-dest
+      - name: bc_so-dest
         parameters:
           content-target: true
       - name: srv-api
-      - name: bc_mc-auth
+      - name: bc_so-auth
         parameters:
           service-key:
-            name: bc_mc-auth-key
-      - name: bc_mc-repo-host
+            name: bc_so-auth-key
+      - name: bc_so-repo-host
         parameters:
           service-key:
-            name: bc_mc-repo-host-key
+            name: bc_so-repo-host-key
     parameters:
       content:
         subaccount:
           destinations:
-            - Name: bc_mc-srv
+            - Name: bc_so-srv
               Authentication: OAuth2UserTokenExchange
-              TokenServiceInstanceName: bc_mc-auth
-              TokenServiceKeyName: bc_mc-auth-key
+              TokenServiceInstanceName: bc_so-auth
+              TokenServiceKeyName: bc_so-auth-key
               URL: ~{srv-api/srv-url}
               sap.cloud.service: com.hugoboss.bc.statusoverview
               HTML5.DynamicDestination: true
@@ -64,35 +64,35 @@ modules:
           existing_destinations_policy: update
         instance:
           destinations:
-            - Name: bc_mc-srv-api
+            - Name: bc_so-srv-api
               Authentication: OAuth2UserTokenExchange
-              TokenServiceInstanceName: bc_mc-auth
-              TokenServiceKeyName: bc_mc-auth-key
+              TokenServiceInstanceName: bc_so-auth
+              TokenServiceKeyName: bc_so-auth-key
               URL: ~{srv-api/srv-url}
               sap.cloud.service: com.hugoboss.bc.statusoverview
               HTML5.Timeout: 60000
-            - Name: bc_mc-repo-host
-              ServiceInstanceName: bc_mc-repo-host
-              ServiceKeyName: bc_mc-repo-host-key
+            - Name: bc_so-repo-host
+              ServiceInstanceName: bc_so-repo-host
+              ServiceKeyName: bc_so-repo-host-key
               sap.cloud.service: com.hugoboss.bc.statusoverview
-            - Name: bc_mc-auth
+            - Name: bc_so-auth
               Authentication: OAuth2UserTokenExchange
-              ServiceInstanceName: bc_mc-auth
-              ServiceKeyName: bc_mc-auth-key
+              ServiceInstanceName: bc_so-auth
+              ServiceKeyName: bc_so-auth-key
               sap.cloud.service: com.hugoboss.bc.statusoverview
           existing_destinations_policy: update
     build-parameters:
       no-source: true
 
-  - name: bc_mc-app-content
+  - name: bc_so-app-content
     type: com.sap.application.content
     path: .
     requires:
-      - name: bc_mc-repo-host
+      - name: bc_so-repo-host
         parameters:
           content-target: true
           service-key:
-            name: bc_mc-repo-host-key
+            name: bc_so-repo-host-key
     build-parameters:
       build-result: resources
       requires:
@@ -113,27 +113,27 @@ modules:
       supported-platforms: []
 
 resources:
-  - name: bc_mc-auth
+  - name: bc_so-auth
     type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
       service-plan: application
       path: ./xs-security.json
       config:
-        xsappname: bc_mc-${space}
+        xsappname: bc_so-${space}
         tenant-mode: dedicated
       service-keys:
-        - name: bc_mc-auth-key
+        - name: bc_so-auth-key
 
-  - name: bc_mc-repo-host
+  - name: bc_so-repo-host
     type: org.cloudfoundry.managed-service
     parameters:
       service: html5-apps-repo
       service-plan: app-host
       service-keys:
-        - name: bc_mc-repo-host-key
+        - name: bc_so-repo-host-key
 
-  - name: bc_mc-dest
+  - name: bc_so-dest
     type: org.cloudfoundry.managed-service
     parameters:
       service: destination
@@ -151,4 +151,4 @@ resources:
             existing_destinations_policy: update
         version: 1.0.0
       service-keys:
-        - name: bc_mc-dest-key
+        - name: bc_so-dest-key

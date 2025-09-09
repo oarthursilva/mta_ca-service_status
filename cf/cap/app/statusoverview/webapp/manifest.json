@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/status-overview/",
+        "uri": "odata/v4/status/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -27,11 +27,11 @@
     },
     "crossNavigation": {
       "inbounds": {
-        "statusoverview-manage": {
+        "statusoverview-display": {
           "semanticObject": "statusoverview",
-          "action": "manage",
-          "title": "{{statusoverview-manage.flpTitle}}",
-          "subTitle": "{{statusoverview-manage.flpSubtitle}}",
+          "action": "display",
+          "title": "{{statusoverview-display.flpTitle}}",
+          "subTitle": "{{statusoverview-display.flpSubtitle}}",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
@@ -143,5 +143,9 @@
   "sap.fiori": {
     "registrationIds": [],
     "archeType": "transactional"
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "com.hugoboss.bc.statusoverview"
   }
 }

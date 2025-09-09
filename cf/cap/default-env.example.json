@@ -1,0 +1,28 @@
+{
+  "VCAP_SERVICES": {
+    "destination": [
+      {
+        "label": "destination",
+        "provider": null,
+        "plan": "lite",
+        "name": "bc_so-dest",
+        "tags": [
+          "destination"
+        ],
+        "credentials": {}
+      }
+    ],
+    "xsuaa": [
+      {
+        "label": "xsuaa",
+        "provider": null,
+        "plan": "application",
+        "name": "bc_so-auth",
+        "tags": [
+          "xsuaa"
+        ],
+        "credentials": {}
+      }
+    ]
+  }
+}
