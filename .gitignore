@@ -148,3 +148,7 @@ mta-*
 resources
 package.zip
 .*_mta_build_tmp
+
+# auto generated wildcard
+cf/cap/gen/db/.env
+gen
