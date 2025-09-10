@@ -18,11 +18,19 @@
             },
             applications: {
                 "statusoverview-app": {
-                    title: 'Status Overview',
+                    title: 'Display Status Overview',
                     description: 'display',
                     additionalInformation: 'SAPUI5.Component=statusoverview',
                     applicationType: 'URL',
                     url: "./statusoverview/webapp",
+                    navigationMode: 'embedded'
+                },
+                "statusoverviewadmin-app": {
+                    title: 'Manage Status Overview',
+                    description: 'manage',
+                    additionalInformation: 'SAPUI5.Component=statusoverviewadmin',
+                    applicationType: 'URL',
+                    url: "./statusoverviewadmin/webapp",
                     navigationMode: 'embedded'
                 }
             }

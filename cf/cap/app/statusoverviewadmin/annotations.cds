@@ -1,4 +1,4 @@
-using statusoverview.cf.srv.StatusService as service from '../../srv/statusoverview-service';
+using statusoverview.cf.srv.AdminService as service from '../../srv/statusoverview-service';
 using from '../../db/statusoverview';
 
 annotate service.StatusOverview with @(

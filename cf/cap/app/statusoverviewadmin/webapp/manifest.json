@@ -1,7 +1,7 @@
 {
   "_version": "1.76.0",
   "sap.app": {
-    "id": "statusoverview",
+    "id": "statusoverviewadmin",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "odata/v4/status/",
+        "uri": "odata/v4/admin/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -27,11 +27,11 @@
     },
     "crossNavigation": {
       "inbounds": {
-        "statusoverview-manage": {
-          "semanticObject": "statusoverview",
+        "statusoverviewadmin-manage": {
+          "semanticObject": "statusoverviewadmin",
           "action": "manage",
-          "title": "{{statusoverview-manage.flpTitle}}",
-          "subTitle": "{{statusoverview-manage.flpSubtitle}}",
+          "title": "{{statusoverviewadmin-manage.flpTitle}}",
+          "subTitle": "{{statusoverviewadmin-manage.flpSubtitle}}",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
@@ -74,7 +74,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "statusoverview.i18n.i18n"
+          "bundleName": "statusoverviewadmin.i18n.i18n"
         }
       },
       "": {
@@ -101,6 +101,11 @@
           "pattern": ":?query:",
           "name": "StatusOverviewList",
           "target": "StatusOverviewList"
+        },
+        {
+          "pattern": "StatusOverview({key}):?query:",
+          "name": "StatusOverviewObjectPage",
+          "target": "StatusOverviewObjectPage"
         }
       ],
       "targets": {
@@ -112,7 +117,13 @@
             "settings": {
               "contextPath": "/StatusOverview",
               "variantManagement": "Page",
-              "navigation": {},
+              "navigation": {
+                "StatusOverview": {
+                  "detail": {
+                    "route": "StatusOverviewObjectPage"
+                  }
+                }
+              },
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
@@ -137,6 +148,17 @@
                   }
                 }
               }
+            }
+          }
+        },
+        "StatusOverviewObjectPage": {
+          "type": "Component",
+          "id": "StatusOverviewObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/StatusOverview"
             }
           }
         }
