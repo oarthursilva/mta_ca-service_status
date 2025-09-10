@@ -16,10 +16,12 @@ modules:
   - name: statusoverview-srv
     type: nodejs
     path: cap/gen/srv
+    deployed-after:
+      - bc_so-db-deployer
     parameters:
       buildpack: nodejs_buildpack
-      disk-quota: 256M
-      memory: 256M
+      disk-quota: 512M
+      memory: 512M
     build-parameters:
       before-all:
         - builder: custom
@@ -32,6 +34,21 @@ modules:
     requires:
       - name: bc_so-auth
       - name: bc_so-dest
+      - name: bc_so-db
+
+  - name: bc_so-db-deployer
+    type: hdb
+    path: cap/gen/db
+    build-parameters:
+      builder: npm
+      ignore:
+        - node_modules/
+    parameters:
+      buildpack: nodejs_buildpack
+      disk-quota: 512M
+      memory: 512M
+    requires:
+      - name: bc_so-db
 
   - name: bc_so-dest-content
     type: com.sap.application.content
@@ -100,6 +117,10 @@ modules:
           target-path: resources/
           artifacts:
             - statusoverview.zip
+        - name: statusoverviewadmin
+          target-path: resources/
+          artifacts:
+            - statusoverviewadmin.zip
 
   - name: statusoverview
     type: html5
@@ -112,13 +133,34 @@ modules:
         - npm run build:cf
       supported-platforms: []
 
+  - name: statusoverviewadmin
+    type: html5
+    path: cap/app/statusoverviewadmin
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build:cf
+      supported-platforms: []
+
 resources:
+  - name: bc_so-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+      config:
+        schema: BC_SO_${space}
+      service-keys:
+        - name: bc_so-db-key
+
   - name: bc_so-auth
     type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
       service-plan: application
-      path: ./xs-security.json
+      path: ./cap/xs-security.json
       config:
         xsappname: bc_so-${space}
         tenant-mode: dedicated

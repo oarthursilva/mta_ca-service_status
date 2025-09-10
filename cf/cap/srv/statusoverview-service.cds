@@ -6,11 +6,24 @@ service StatusService @(requires: 'authenticated-user') {
     @readonly
     entity StatusOverview as projection on db.StatusOverview;
 
-    annotate StatusService with @(require: 'user');
+    annotate StatusOverview with @(
+        require    : 'user',
+        odata.draft: {
+            enabled: false,
+            bypass : false
+        }
+    );
 }
 
 service AdminService {
+
     entity StatusOverview as projection on db.StatusOverview;
 
-    annotate AdminService with @(require: 'admin');
+    annotate StatusOverview with @(
+        require    : 'admin',
+        odata.draft: {
+            enabled,
+            bypass
+        }
+    );
 }

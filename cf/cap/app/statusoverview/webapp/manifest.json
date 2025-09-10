@@ -133,10 +133,11 @@
                         "align": "Center"
                       }
                     },
-                    "initialLoad": "Enabled"
+                    "initialLoad": ""
                   }
                 }
-              }
+              },
+              "initialLoad": "Enabled"
             }
           }
         }
