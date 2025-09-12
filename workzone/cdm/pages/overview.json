@@ -16,7 +16,7 @@
           {
             "id": "page_overview-11",
             "columnConfig": {
-              "columnWidth": 8
+              "columnWidth": 3
             },
             "cells": [
               {
@@ -37,7 +37,7 @@
           {
             "id": "page_overview-12",
             "columnConfig": {
-              "columnWidth": 4
+              "columnWidth": 9
             },
             "cells": [
               {
@@ -47,8 +47,8 @@
                   {
                     "id": "page_overview-1112",
                     "viz": {
-                      "appId": "cards.servicestatuschart.app",
-                      "vizId": "cards.servicestatuschart.viz"
+                      "appId": "saas_approuter_servicestatusadmin",
+                      "vizId": "tile"
                     }
                   }
                 ]

@@ -31,34 +31,32 @@
     "sap.card": {
         "type": "Table",
         "configuration": {
-            "editor": "dt/configuration",
-            "filters": {
-                "searchQuery": {
-                    "type": "Search",
-                    "label": "{{componentName}}",
-                    "placeholder": "{{componentNamePlaceholder}}"
+            "destinations": {
+                "bc_so-srv": {
+                    "name": "bc_so-srv",
+                    "defaultUrl": "/odata/v4/status"
                 }
             },
+            "editor": "dt/configuration",
             "parameters": {
                 "title": {
                     "value": "{{title}}"
                 },
                 "subtitle": {
                     "value": "{{subtitle}}"
-                },
-                "maxItems": {
-                    "value": 4
                 }
             }
         },
         "data": {
             "request": {
-                "url": "",
+                "url": "{{destinations.bc_so-srv}}/odata/v4/status/StatusOverview",
+                "withCredentials": true,
                 "parameters": {
-                    "$filter": "contains(ComponentName, '{filters>/searchQuery/value}')",
+                    "$expand": "component,status",
                     "$count": true
                 }
-            }
+            },
+            "path": "/value"
         },
         "header": {
             "title": "{{title}}",
@@ -69,82 +67,53 @@
             "actions": [
                 {
                     "type": "Navigation",
+                    "enabled": true,
                     "parameters": {
-                        "url": "http://hugoboss.com"
+                        "ibnTarget": {
+                            "semanticObject": "statusoverview",
+                            "action": "manage"
+                        }
                     }
                 }
             ]
         },
         "content": {
-            "data": {
-                "json": [
-                    {
-                        "ComponentName": "F1.Management",
-                        "Status": "Success",
-                        "Date": ""
-                    },
-                    {
-                        "ComponentName": "F2.Product Development",
-                        "Status": "Success",
-                        "Date": ""
-                    },
-                    {
-                        "ComponentName": "F3.Sales",
-                        "Status": "Success",
-                        "Date": ""
-                    },
-                    {
-                        "ComponentName": "F4.Procurement & Production",
-                        "Status": "Warning",
-                        "Date": "9 Sept 2025 9:00:00 am"
-                    },
-                    {
-                        "ComponentName": "F5.Distribution & Logistics",
-                        "Status": "Warning",
-                        "Date": "9 Sept 2025 10:00:00 am"
-                    },
-                    {
-                        "ComponentName": "F6.Retail",
-                        "Status": "Success",
-                        "Date": ""
-                    },
-                    {
-                        "ComponentName": "S1.FICO",
-                        "Status": "Success",
-                        "Date": ""
-                    },
-                    {
-                        "ComponentName": "S2.Marketing",
-                        "Status": "Error",
-                        "Date": "9 Sept 2025 11:00:00 am"
-                    }
-                ]
-            },
             "row": {
-                "highlight": "{Status}",
+                "highlight": "{status/name}",
                 "actions": [
                     {
                         "type": "Navigation",
+                        "enabled": true,
                         "parameters": {
-                            "url": "http://hugoboss.com"
+                            "ibnTarget": {
+                                "semanticObject": "statusoverview",
+                                "action": "manage"
+                            }
                         }
                     }
                 ],
                 "columns": [
                     {
                         "title": "Current status",
-                        "value": "{ComponentName}",
-                        "state": "{Status}",
+                        "value": "{component/name}",
+                        "width": "60%",
+                        "state": "{status/name}",
                         "showStateIcon": true
                     },
                     {
                         "title": "Date",
-                        "value": "{Date}",
+                        "value": "{date}",
+                        "width": "20%",
+                        "hAlign": "Center"
+                    },
+                    {
+                        "title": "Time",
+                        "value": "{time}",
+                        "width": "20%",
                         "hAlign": "Center"
                     }
                 ]
-            },
-            "maxItems": 0
+            }
         }
     },
     "sap.platform.mobilecards": {

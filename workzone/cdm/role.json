@@ -17,7 +17,7 @@
         "id": "cards.servicestatus.app"
       },
       {
-        "id": "cards.servicestatuschart.app"
+        "id": "saas_approuter_servicestatus"
       }
     ]
   }

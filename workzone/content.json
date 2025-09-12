@@ -6,6 +6,13 @@
       "content": "role.json"
     }
   },
+  "role.admin": {
+    "type": "role",
+    "src": {
+      "from": "cdm",
+      "content": "role.admin.json"
+    }
+  },
   "space-overview": {
     "type": "space",
     "src": {
@@ -36,6 +43,20 @@
       "package": "cards.servicestatuschart.zip",
       "manifest": "src/manifest.json",
       "build": "npm i && npm run-script build"
+    }
+  },
+  "app-servicestatus": {
+    "type": "businessapp",
+    "src": {
+      "from": "cdm/apps",
+      "content": "servicestatus.json"
+    }
+  },
+  "app-servicestatusadmin": {
+    "type": "businessapp",
+    "src": {
+      "from": "cdm/apps",
+      "content": "servicestatusadmin.json"
     }
   }
 }

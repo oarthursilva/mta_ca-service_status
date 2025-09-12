@@ -1,0 +1,16 @@
+{
+  "_version": "3.2.0",
+  "identification": {
+    "id": "role.admin",
+    "title": "{{role_admin_title}}",
+    "description": "{{role_admin_description}}",
+    "entityType": "role"
+  },
+  "payload": {
+    "apps": [
+      {
+        "id": "saas_approuter_servicestatusadmin"
+      }
+    ]
+  }
+}
