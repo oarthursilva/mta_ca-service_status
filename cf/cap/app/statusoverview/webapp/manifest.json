@@ -5,7 +5,7 @@
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
-      "version": "0.0.1"
+      "version": "1.0.2"
     },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.18.6",
-      "toolsId": "a594d2d3-704e-4c93-886d-8573646d8ee3"
+      "toolsId": "b367fdff-c3f9-4c6c-839d-0affd7c9716a"
     },
     "dataSources": {
       "mainService": {
@@ -27,11 +27,11 @@
     },
     "crossNavigation": {
       "inbounds": {
-        "statusoverview-manage": {
+        "statusoverview-display": {
           "semanticObject": "statusoverview",
-          "action": "manage",
-          "title": "{{statusoverview-manage.flpTitle}}",
-          "subTitle": "{{statusoverview-manage.flpSubtitle}}",
+          "action": "display",
+          "title": "{{statusoverview-display.flpTitle}}",
+          "subTitle": "{{statusoverview-display.flpSubtitle}}",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
@@ -117,25 +117,33 @@
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "ResponsiveTable",
+                    "enablePaste": true,
                     "enableExport": true,
-                    "enableMassEdit": false,
+                    "enableFullScreen": true,
+                    "enableMassEdit": {
+                      "visibleFields": "@com.sap.vocabularies.UI.v1.FieldGroup#GeneratedGroup",
+                      "ignoredFields": "component_code,status"
+                    },
                     "selectionMode": "None",
-                    "selectAll": false,
                     "disableCopyToClipboard": false,
                     "creationMode": {
-                      "name": "Inline"
+                      "name": "Inline",
+                      "createAtEnd": true
                     },
-                    "columns": {
-                      "DataField::comment::comment": {
-                        "align": "Center"
-                      },
-                      "DataField::status::descr": {
-                        "align": "Center"
+                    "initialLoad": "Enabled",
+                    "condensedTableLayout": false
+                  },
+                  "columns": {
+                    "DataField::comment": {
+                      "formatOptions": {
+                        "textLinesDisplay": 5,
+                        "textLinesEdit": 5,
+                        "textMaxCharactersDisplay": "Infinity"
                       }
-                    },
-                    "initialLoad": ""
+                    }
                   }
-                }
+                },
+                "initialLoad": "Enabled"
               },
               "initialLoad": "Enabled"
             }

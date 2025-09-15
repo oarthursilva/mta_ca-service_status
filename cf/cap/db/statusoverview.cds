@@ -1,5 +1,5 @@
 using {
-    cuid,
+    // cuid,
     managed,
     sap.common.CodeList
 } from '@sap/cds/common';
@@ -9,12 +9,13 @@ namespace statusoverview.cf.db;
 /**
 * Status overview created by employees
 */
-entity StatusOverview : cuid, managed {
-    status    : Association to Status default 'S' @(title: 'Status');
-    component : Association to Components         @(title: 'Component');
-    comment   : String                            @(title: 'Comment');
-    date      : Date                              @(title: 'Date');
-    time      : Time                              @(title: 'Time');
+entity StatusOverview : managed {
+    key component : Association to Components         @(title: 'Component');
+        position  : Int32; // internal
+        status    : Association to Status default 'S' @(title: 'Status');
+        comment   : String                            @(title: 'Comment')  @UI.MultiLineText;
+        date      : Date                              @(title: 'Date');
+        time      : Time                              @(title: 'Time');
 }
 
 entity Components : CodeList {

@@ -1,7 +1,7 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Fri Sep 05 2025 15:07:28 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Mon Sep 15 2025 10:36:56 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>SAP Fiori Application Generator|
 |**App Generator Version**<br>1.18.6|
 |**Generation Platform**<br>SAP Business Application Studio|
@@ -9,7 +9,7 @@
 |**Service Type**<br>Local CAP|
 |**Service URL**<br>http://localhost:4004/odata/v4/status/|
 |**Module Name**<br>statusoverview|
-|**Application Title**<br>Status Overview|
+|**Application Title**<br>Display Status Overview|
 |**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.140.0|
@@ -20,7 +20,7 @@
 
 ## statusoverview
 
-Status Overview
+Display Status Overview
 
 ### Starting the generated app
 

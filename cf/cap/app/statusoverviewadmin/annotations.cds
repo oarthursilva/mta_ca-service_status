@@ -1,22 +1,26 @@
 using statusoverview.cf.srv.AdminService as service from '../../srv/statusoverview-service';
 using from '../../db/statusoverview';
 
+annotate service.StatusOverview with @(UI.HeaderInfo: {
+    TypeName      : 'Component',
+    TypeNamePlural: 'Components'
+});
+
 annotate service.StatusOverview with @(
+    UI.CreateHidden,
+    UI.DeleteHidden,
     UI.FieldGroup #GeneratedGroup: {
         $Type: 'UI.FieldGroupType',
         Data : [
-            {
-                $Type      : 'UI.DataField',
-                Value      : status_code,
-                Criticality: status.criticality,
-            },
             {
                 $Type: 'UI.DataField',
                 Value: component_code,
             },
             {
-                $Type: 'UI.DataField',
-                Value: comment,
+                $Type                    : 'UI.DataField',
+                Value                    : status_code,
+                Criticality              : status.criticality,
+                CriticalityRepresentation: #WithIcon,
             },
             {
                 $Type: 'UI.DataField',
@@ -25,15 +29,17 @@ annotate service.StatusOverview with @(
             {
                 $Type: 'UI.DataField',
                 Value: time,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: comment,
+                @UI.Hidden,
             }
         ],
     },
-    UI.Facets                    : [{
-        $Type : 'UI.ReferenceFacet',
-        ID    : 'GeneratedFacet',
-        Label : 'General Information',
-        Target: '@UI.FieldGroup#GeneratedGroup',
-    }, ],
+
+    UI.FieldGroup #Section       : {Data: [{Value: comment}, ]},
+
     UI.LineItem                  : [
         {
             $Type             : 'UI.DataField',
@@ -62,6 +68,8 @@ annotate service.StatusOverview with @(
                 $Type: 'HTML5.CssDefaultsType',
                 width: '40rem',
             },
+            @UI.PartOfPreview : true,
+            @UI.Importance    : #High,
         },
         {
             $Type             : 'UI.DataField',
@@ -99,6 +107,8 @@ annotate service.StatusOverview with {
                 ValueListProperty: 'code',
             }, ],
         },
+        Common.Text                    : status.descr,
+        Common.Text.@UI.TextArrangement: #TextOnly,
     );
     component @(
         Common.Label                   : '{i18n>Component}',
@@ -112,6 +122,27 @@ annotate service.StatusOverview with {
                 ValueListProperty: 'code',
             }, ],
         },
+        Common.Text                    : component.descr,
+        Common.Text.@UI.TextArrangement: #TextOnly,
     );
-    comment   @(UI.MultiLineText)
 };
+
+annotate service.StatusOverview with @(UI.Facets: [
+    {
+        $Type : 'UI.ReferenceFacet',
+        ID    : 'GeneratedFacet',
+        Label : 'General Information',
+        Target: '@UI.FieldGroup#GeneratedGroup',
+    },
+    {
+        $Type : 'UI.CollectionFacet',
+        ID    : 'collectionFacetSection',
+        Label : 'Description',
+        Facets: [{
+            $Type : 'UI.ReferenceFacet',
+            Target: '@UI.FieldGroup#Section',
+            ID    : 'SubSectionComment',
+            Label : 'Comment',
+        }],
+    }
+]);

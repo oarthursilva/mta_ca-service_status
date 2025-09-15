@@ -1,1 +1,10 @@
-ID,status_code,component_code,createdAt,createdBy,modifiedAt,modifiedBy
+component_code,position,status_code
+General,1,S
+F1,2,S
+F2,3,S
+F3,4,S
+F4,5,S
+F5,6,S
+F6,7,S
+S1,8,S
+S2,9,S

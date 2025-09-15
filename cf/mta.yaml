@@ -17,7 +17,7 @@ modules:
     type: nodejs
     path: cap/gen/srv
     deployed-after:
-      - bc_so-db-deployer
+      - statusoverview-db
     parameters:
       buildpack: nodejs_buildpack
       disk-quota: 512M
@@ -36,7 +36,7 @@ modules:
       - name: bc_so-dest
       - name: bc_so-db
 
-  - name: bc_so-db-deployer
+  - name: statusoverview-db
     type: hdb
     path: cap/gen/db
     build-parameters:

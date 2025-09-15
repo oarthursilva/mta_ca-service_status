@@ -4,10 +4,10 @@
     "generatorPlatform": "SAP Business Application Studio",
     "serviceType": "Local CAP",
     "metadataFilename": "",
-    "serviceUrl": "http://localhost:4004/odata/v4/admin/",
-    "appName": "statusoverviewadmin",
-    "appTitle": "Manage Status Overview",
-    "appDescription": "Manage Status Overview",
+    "serviceUrl": "http://localhost:4004/odata/v4/status/",
+    "appName": "statusoverview",
+    "appTitle": "Status Overview",
+    "appDescription": "Status Overview",
     "appNamespace": "",
     "ui5Theme": "sap_horizon",
     "ui5Version": "1.140.0",
@@ -24,6 +24,6 @@
         "value": "StatusOverview"
       }
     ],
-    "launchText": "To launch the generated app, start your CAP project:  and navigate to the following location in your browser:\n\nhttp://localhost:4004/statusoverviewadmin/index.html"
+    "launchText": "To launch the generated app, start your CAP project:  and navigate to the following location in your browser:\n\nhttp://localhost:4004/statusoverview/index.html"
   }
 }
