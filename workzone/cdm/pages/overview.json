@@ -16,7 +16,7 @@
           {
             "id": "page_overview-11",
             "columnConfig": {
-              "columnWidth": 3
+              "columnWidth": 4
             },
             "cells": [
               {
@@ -37,7 +37,7 @@
           {
             "id": "page_overview-12",
             "columnConfig": {
-              "columnWidth": 9
+              "columnWidth": 8
             },
             "cells": [
               {

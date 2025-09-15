@@ -2,7 +2,7 @@
   "sap.package": {
     "id": "bc.ss",
     "packageVersion": {
-      "version": "1.0.36",
+      "version": "1.0.44",
       "upgradeNotification": "all"
     },
     "i18n": "i18n/i18n.properties",

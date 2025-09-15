@@ -14,7 +14,6 @@
         "vizConfig": {
           "sap.ui": {
             "icons": {
-              "icon": "sap-icon://order-status"
             }
           },
           "sap.app": {
@@ -25,7 +24,7 @@
           "sap.flp": {
             "target": {
               "type": "IBN",
-              "inboundId": "statusoverview-manage"
+              "inboundId": "statusoverview-display"
             }
           }
         }
@@ -57,12 +56,11 @@
       "sap.app": {
         "crossNavigation": {
           "inbounds": {
-            "statusoverview-manage": {
+            "statusoverview-display": {
               "semanticObject": "statusoverview",
-              "action": "manage",
+              "action": "display",
               "title": "{{appDescription}}",
               "subTitle": "{{subTitle}}",
-              "icon": "sap-icon://order-status",
               "signature": {
                 "parameters": {},
                 "additionalParameters": "allowed"
