@@ -46,6 +46,7 @@
             }
         },
         "data": {
+            "updateInterval": 8,
             "request": {
                 "url": "{{destinations.bc_so-srv}}/odata/v4/status/StatusOverview",
                 "withCredentials": true,
