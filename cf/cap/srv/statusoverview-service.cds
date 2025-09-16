@@ -4,7 +4,9 @@ namespace statusoverview.cf.srv;
 
 service StatusService @(requires: 'authenticated-user') {
     @readonly
-    entity StatusOverview as projection on db.StatusOverview;
+    entity StatusOverview as projection on db.StatusOverview
+                             order by
+                                 position;
 
     annotate StatusOverview with @(
         require    : 'user',
@@ -17,7 +19,9 @@ service StatusService @(requires: 'authenticated-user') {
 
 service AdminService {
 
-    entity StatusOverview as projection on db.StatusOverview;
+    entity StatusOverview as projection on db.StatusOverview
+                             order by
+                                 position;
 
     annotate StatusOverview with @(
         require    : 'admin',
