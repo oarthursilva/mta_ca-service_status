@@ -50,6 +50,7 @@ annotate service.StatusOverview with @(
                 $Type: 'HTML5.CssDefaultsType',
                 width: '10rem',
             },
+            @UI.Importance    : #High,
         },
         {
             $Type             : 'UI.DataField',
