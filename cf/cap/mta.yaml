@@ -10,22 +10,22 @@ build-parameters:
     - builder: custom
       commands:
         - npm ci
-        - npm run build:module
-
+        - npm run build
+        # - npm run build:module
 
 modules:
   - name: statusoverview-srv
     type: nodejs
-    path: cap/gen/srv
-    deployed-after:
-      - statusoverview-db
+    path: gen/srv
+    # deployed-after:
+    #   - statusoverview-db
     parameters:
       instances: 1
       buildpack: nodejs_buildpack
     build-parameters:
       builder: npm-ci
-    #   disk-quota: 512M
-    #   memory: 512M
+      # disk-quota: 512M
+      # memory: 512M
     # build-parameters:
     #   before-all:
     #     - builder: custom
@@ -42,7 +42,7 @@ modules:
 
   - name: statusoverview-db
     type: hdb
-    path: cap/gen/db
+    path: gen/db
     # build-parameters:
     #   builder: npm
     #   ignore:
@@ -128,7 +128,7 @@ modules:
 
   - name: statusoverview
     type: html5
-    path: cap/app/statusoverview
+    path: app/statusoverview
     build-parameters:
       build-result: dist
       builder: custom
@@ -139,7 +139,7 @@ modules:
 
   - name: statusoverviewadmin
     type: html5
-    path: cap/app/statusoverviewadmin
+    path: app/statusoverviewadmin
     build-parameters:
       build-result: dist
       builder: custom
@@ -155,7 +155,7 @@ resources:
       service: hana
       service-plan: hdi-shared
       config:
-        schema: BC_SO_${space}
+        schema: BC_SO_${org}_${space}
       service-keys:
         - name: bc_so-db-key
 
@@ -164,7 +164,7 @@ resources:
     parameters:
       service: xsuaa
       service-plan: application
-      path: ./cap/xs-security.json
+      path: ./xs-security.json
       config:
         xsappname: bc_so-${space}
         tenant-mode: dedicated
