@@ -39,3 +39,7 @@ The statements adds the `SAP Authorization and Trust Management` service (includ
 ### Troubleshooting
 
 - https://github.com/nodejs/node-gyp#installation
+
+
+cds bind -2 bc_so-db-dev-00:SharedDevKey
+cds watch --profile hybrid

@@ -22,16 +22,24 @@
     "@cap-js/cds-types": "^0.13.0",
     "@cap-js/sqlite": "^2",
     "@sap/cds-dk": ">=8",
-    "cds-plugin-ui5": "^0.13.0"
+    "@sap/hdi-deploy": "^5.5.0",
+    "cds-plugin-ui5": "^0.13.0",
+    "mbt": "^1.2.31",
+    "npm-run-all": "^4.1.5"
   },
   "scripts": {
     "build": "cds build --production",
     "start": "cds-serve",
     "test": "npx jest */*.test.js",
     "watch-statusoverview": "cds watch --open statusoverview/index.html?sap-ui-xx-viewCache=false --livereload false",
-    "watch-statusoverviewadmin": "cds watch --open statusoverviewadmin/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-statusoverviewadmin": "cds watch --open statusoverviewadmin/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "build:cf": "mbt build -p=cf",
+    "deploy:cf": "cf deploy mta_archives/statusoverview_1.0.0.mtar --retries 1",
+    "undeploy:cf": "cf undeploy statusoverview --delete-service-keys --delete-services --delete-service-brokers"
   },
   "cds": {
+    "auth": "mocked",
+    "db": "hana",
     "requires": {
       "auth": {
         "[development]": {
@@ -55,18 +63,12 @@
         "auth": {
           "kind": "xsuaa"
         }
-      },
-      "destinations": true,
-      "html5-runtime": true,
-      "workzone": true
+      }
     },
     "odata": {
       "version": "v4"
     }
   },
-  "workspaces": [
-    "app/*"
-  ],
   "sapux": [
     "app/statusoverview",
     "app/statusoverviewadmin"
