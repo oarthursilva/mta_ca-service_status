@@ -1,0 +1,88 @@
+<c:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:c="sap.ui.core"
+  xmlns:l="sap.ui.layout"
+>
+  <Dialog
+    id="idInformationDialog"
+    escapeHandler=""
+    beforeOpen="onDialogBeforeOpen"
+    afterClose="onDialogAfterClose"
+    title="{i18n>information-dialog-title}"
+    class="sapUiContentPadding"
+    icon="sap-icon://information"
+  >
+    <endButton>
+      <Button
+        id="idCloseButton"
+        text="{i18n>information-dialog-button-close}"
+        type="Emphasized"
+        press="onCloseButtonPress"
+      />
+    </endButton>
+    <content>
+
+      <!-- status indicator -->
+      <Panel 
+        id="idPanel"
+        class="sapUiResponsiveMargin"
+        expandable="false" 
+        expanded="true"
+        stickyHeader="true" 
+        headerText="{/status/title}" 
+        height="auto"
+        width="auto"
+      >
+        <content>
+        	<l:VerticalLayout id="idVerticalLayout" width="auto">
+						<ObjectStatus
+              id="idObjectStatusSuccess"
+							class="sapUiSmallMargin"
+							text="{/status/success}"
+							icon="sap-icon://sys-enter-2"
+              inverted="true"
+							state="Success" />
+
+						<ObjectStatus
+              id="idObjectStatusWarning"
+							class="sapUiSmallMargin"
+							text="{/status/warning}"
+              icon="sap-icon://alert"
+              inverted="true"
+							state="Warning" />
+
+						<ObjectStatus
+              id="idObjectStatusError"
+							class="sapUiSmallMargin"
+							text="{/status/error}"
+              icon="sap-icon://error"
+              inverted="true"
+							state="Error" />
+          </l:VerticalLayout>
+        </content>
+      </Panel>
+
+      <!-- remarks -->
+      <Panel 
+        id="idPanelRemarks"
+        class="sapUiResponsiveMargin"
+        expandable="false" 
+        expanded="true"
+        stickyHeader="true" 
+        headerText="{/remarks/title}"
+        height="auto"
+        width="auto"
+      >
+        <content>
+        	<l:VerticalLayout id="idVerticalLayoutRemarks" width="auto">
+            <Text id="idRemarksText1" text="{/remarks/text1}" />
+		        <FormattedText id="idRemarksText2" htmlText="{/remarks/text2}"/>
+		        <FormattedText id="idRemarksText3" htmlText="{/remarks/text3}"/>
+		        <FormattedText id="idRemarksText4" htmlText="{/remarks/text4}"/>
+          </l:VerticalLayout>
+        </content>
+      </Panel>
+
+    </content>
+  </Dialog>
+</c:FragmentDefinition>

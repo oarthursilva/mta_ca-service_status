@@ -141,12 +141,33 @@
                         "textMaxCharactersDisplay": "Infinity"
                       }
                     }
+                  },
+                  "actions": {
+                    "information": {
+                      "id": "idInformationButton",
+                      "press": "statusoverview.ext.controller.ListReport.handleInformationDialog",
+                      "visible": true,
+                      "enabled": true,
+                      "icon": "sap-icon://information",
+                      "requiresSelection": false,
+                      "text": "{i18n>information}"
+                    }
                   }
                 },
                 "initialLoad": "Enabled"
               },
-              "initialLoad": "Enabled"
+              "initialLoad": "Enabled",
+              "hideFilterBar": true
             }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "statusoverview.ext.controller.ListReport"
           }
         }
       }
